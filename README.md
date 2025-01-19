@@ -1,110 +1,125 @@
 # Data-Analyse-and-Machine-Learning-Project-on-Recipe-Dataset
-Data Analyse and Machine Learning on Recipe Dataset.
-# Tarif Veri Seti Analizi ve Kümeleme
 
-Bu repository, bir tarif veri seti üzerinde keşifsel veri analizi (EDA), temel modelleme ve kümeleme gerçekleştiren bir Python not defteri (`Recipe-Dataset-Analyse.ipynb`) içerir. Amaç, verilerden içgörüler elde etmek ve tarif kümeleri oluşturmaktır.
+Bu repository, tarif veri seti üzerinde keşifsel veri analizi (EDA), temel modelleme ve kümeleme gerçekleştiren bir Python not defteri olan `Recipe-Dataset-Analyse.ipynb` dosyasını içerir. Projenin amacı, tariflere ait verileri analiz ederek içgörüler elde etmek, tariflerin özelliklerine göre kümeler oluşturmak ve modeller aracılığıyla verilerin davranışını anlamaktır.
 
 ## İçindekiler
 
-*   [Genel Bakış](#genel-bakış)
-*   [Veri](#veri)
-*   [Not Defteri İncelemesi](#not-defteri-incelemesi)
-*   [Temel Bulgular](#temel-bulgular)
-*   [Kullanım](#kullanım)
-*   [Bağımlılıklar](#bağımlılıklar)
-*   [Sonraki Adımlar](#sonraki-adımlar)
-*   [Lisans](#lisans)
-*   [Yazar](#yazar)
+- [Genel Bakış](#genel-bakış)
+- [Veri](#veri)
+- [Not Defteri İncelemesi](#not-defteri-incelemesi)
+- [Temel Bulgular ve Sonuç](#temel-bulgular-ve-sonuç)
+- [Kullanım](#kullanım)
+- [Bağımlılıklar](#bağımlılıklar)
+- [Sonraki Adımlar](#sonraki-adımlar)
+- [Lisans](#lisans)
+- [Yazar](#yazar)
+
+---
 
 ## Genel Bakış
 
-Bu proje, özelliklerini anlamak ve gizli kalıpları ortaya çıkarmak için bir tarif veri setini analiz eder. Not defteri şunları kapsar:
-* Veri Yükleme ve Temizleme
-* Keşifsel Veri Analizi (EDA)
-* Tahmini modeller oluşturma ve test etme.
-* Hiyerarşik kümeleme kullanarak kümeleme analizi yapma.
-* Küme kalitesini ve özellik önemini değerlendirme ve analiz etme.
+Bu projede, tarif veri seti kullanılarak veri analizi ve makine öğrenimi teknikleri uygulanmıştır. Çalışmanın temel aşamaları şunlardır:
+
+- **Keşifsel Veri Analizi (EDA):** Veri setindeki trendlerin ve kalıpların görselleştirilmesi.
+- **Veri Temizleme ve Ön İşleme:** Eksik değerlerin giderilmesi, aykırı değerlerin yönetimi ve özellik mühendisliği.
+- **Temel Modelleme:** Farklı regresyon modellerinin performanslarının değerlendirilmesi.
+- **Kümeleme Analizi:** Tariflerin benzerliklerine göre gruplandırılması ve kümeler arasındaki farklılıkların incelenmesi.
+
+---
 
 ## Veri
 
-Bu analizde kullanılan veri seti, `recipes_images.json` adlı bir JSON dosyasında saklanır. Bu veri seti, [Recipe Dataset with Images, Tags, and Ratings](https://www.kaggle.com/datasets/seungyeonhan1/recipe-dataset-with-images-tags-and-ratings) adresinden elde edilmiştir.
-Bu dosya, aşağıdakiler de dahil olmak üzere tarif bilgilerini içerir:
+Kullanılan veri seti, [Recipe Dataset with Images, Tags, and Ratings](https://www.kaggle.com/datasets/seungyeonhan1/recipe-dataset-with-images-tags-and-ratings) adresinden alınmıştır. Veri seti, tariflere ilişkin şu bilgileri içermektedir:
 
-*   Title: Tarif başlıkları
-*   Description: Açıklamalar
-*   Ingredients: İçindekiler
-*   Cooking Time. Pişirme süresi
-*   Servings: Porsiyon sayıları
-*   Yayın tarihi
-*   Image Filename: Resim dosyası adı
-*   Instructions: Pişirme Talimatları
-*   Ratings: Değerlendirmeler
-*   Tags: Çeşitli etiketler (tür, mutfak, içerik, öğün, özel durumlar, ekipman vb.)
+- **Başlık (Title):** Tarif isimleri.
+- **Değerlendirme (Ratings):** Kullanıcı değerlendirme puanları ve yorum sayıları.
+- **İçindekiler (Ingredients):** Tarifin malzemeleri.
+- **Etiketler (Tags):** Özel durumlar (örneğin vegan, glütensiz, keto vb.).
+- **Talimatlar (Instructions):** Tariflerin hazırlanış yöntemleri.
+- **Pişirme Süresi ve Porsiyon:** Tarifin hazırlanma süresi ve porsiyon miktarı.
+
+---
 
 ## Not Defteri İncelemesi
 
-`Recipe-Dataset-Analyse.ipynb` not defteri aşağıdaki adımları gerçekleştirir:
+Not defteri aşağıdaki adımları içermektedir:
 
-1.  **Veri Yükleme ve İlk İnceleme:**
-    *   `recipes_images.json` dosyasını yükler.
-    *   JSON verilerini pandas DataFrame'ine dönüştürür.
-    *   `df.info()` kullanarak veri seti hakkında temel bilgileri (sütunlar, veri türleri, null değerler) görüntüler.
-2.  **Veri Filtreleme ve Seçimi:**
-    *   Analiz için ilgili sütunları (`title`, `ratings.rating`, `ratings.count`, `tags.special-consideration`) seçer.
-    *   Seçilen sütunlarla yeni bir DataFrame (`df_filtered`) oluşturur.
-3.  **Veri Temizleme ve Ön İşleme:**
-    *   `ratings.rating` ve `ratings.count` sütunlarındaki eksik değerleri ortalama ile doldurmak için `SimpleImputer` kullanır.
-    *   `tags.special-consideration` değeri eksik olan satırları siler.
-    *    `tags.special-consideration` sütunundaki özel durumları birleştirerek tek bir stringe dönüştürür ve one-hot encoding uygular ve orijinal sütunu siler.
-    *   Aykırı değerleri ele almak için `ratings.rating` sütununu %5 ve %95'lik yüzdelik dilimlerde sınırlandırır (winsorization).
-    *   `ratings.count` değeri medyanın üzerinde olanlar için yeni bir ikili özellik (`high_ratings_count`) oluşturur.
-4.  **Keşifsel Veri Analizi (EDA):**
-    *   `ratings.rating` ve `ratings.count` dağılımlarını histogramlar ve yoğunluk grafikleri ile görselleştirir.
-    *   İkili özelliklerin (özel durumlardan oluşturulan) sıklığını bir çubuk grafikte görüntüler.
-    *   İkili özelliklerin korelasyon matrisini bir ısı haritası ile görselleştirir.
-5.  **Temel Modelleme:**
-    *   One-hot encoding yapılmış `special considerations` sütunları ile hedef olarak da `ratings.rating` sütununu kullanarak bir model oluşturur.
-    *   Veriyi eğitim ve test kümelerine ayırır.
-    *   Aşağıdaki regresyon modellerini eğitmek ve performanslarını değerlendirmek için bir fonksiyon tanımlar ve doğruluk (1-MSE/Varyans) puanlarını hesaplar.
-        *   Linear Regression (Doğrusal Regresyon)
-        *   Gradient Boosting Regressor (Gradyan Artırma Regresyonu)
-        *   Random Forest Regressor (Rastgele Orman Regresyonu)
-6.  **Kümeleme Analizi:**
-    *   Tariflerdeki kümeleri belirlemek için öklid uzaklığı kullanarak 'ward' yöntemiyle hiyerarşik kümeleme uygular.
-    *   Aşağıdakileri kullanarak kümeleri görselleştirir:
-        *   Küme sayısını belirlemeye yardımcı olmak için bir dendrogram
-        *   Boyut indirgeme için PCA kullanan bir saçılım grafiği
-        *   Özellik ortalamalarının kümeler arasındaki ısı haritası
-        *   Küme bazında derecelendirme dağılımının kutu grafiği
-    *   Verinin ne kadar iyi kümelendiğini belirlemek için Siluet Skoru, Calinski-Harabasz İndeksi ve Davies-Bouldin İndeksi gibi kümeleme kalite metriklerini hesaplar ve yazdırır.
-    *    Her kümedeki en belirgin ilk 5 özelliği yazdırır.
+1. **Veri Yükleme ve İnceleme:**
+   - Veri seti yüklendi, incelendi ve eksik değerler tespit edildi.
+2. **Veri Temizleme ve Ön İşleme:**
+   - Eksik değerler giderildi.
+   - Aykırı değerler Winsorization yöntemiyle sınırlandırıldı.
+   - Etiketler one-hot encoding yöntemiyle sayısallaştırıldı.
+3. **EDA (Keşifsel Veri Analizi):**
+   - Değerlendirme puanları ve özelliklerin dağılımları görselleştirildi.
+   - Özellikler arası korelasyon incelendi.
+4. **Modelleme:**
+   - Linear Regression, Gradient Boosting ve Random Forest modelleri değerlendirildi.
+5. **Kümeleme:**
+   - Tarifler hiyerarşik kümeleme yöntemiyle gruplandırıldı.
+   - Küme özellikleri detaylıca analiz edildi.
 
-## Temel Bulgular ve Sonuç 
+---
 
-*   Veri seti, çeşitli etiketlere ve özel durumlara sahip çok çeşitli tarifler içerir.
-*   Winsorization, puanlardaki aykırı değerlerin etkisini azaltmaya yardımcı olur.
-*   Farklı kümeleme algoritmaları, her küme için farklı bir kalite ve farklı tarifler sunmaktadır.
-*   Tanımlanan modellerin doğruluk oranı yaklaşık %1 seviyesinde olup, performansları iyi değildir.
+## Temel Bulgular ve Sonuç
+
+### 1. Kümeleme Bulguları:
+Veri kümesi 3 gruba ayrılmıştır:
+
+| Küme | Ortalama Puan | Standart Sapma | Ortalama Yorum Sayısı | Öne Çıkan Özellikler                           |
+|------|---------------|----------------|------------------------|-----------------------------------------------|
+| 1    | 4.20          | 0.40           | 18.79                 | Vegan, Vejetaryen, Glütensiz                  |
+| 2    | 3.85          | 0.59           | 17.64                 | Kosher, Pescatarian, Düşük Şeker İçeriği      |
+| 3    | 4.21          | 0.39           | 23.41                 | Yüksek Derecelendirme, Nötresiz, Keto         |
+
+- Kümeleme analizi, tariflerin spesifik diyet gereksinimlerine ve puanlarına göre farklı gruplara ayrılabileceğini göstermiştir.
+- Küme 3, genellikle yüksek derecelendirme puanlarına ve daha fazla yorum sayısına sahiptir.
+
+### 2. Modelleme Performansı:
+Regresyon modellerinin doğruluk oranları oldukça düşüktür:
+
+| Model                      | Doğruluk (%) | MSE    | R²     |
+|----------------------------|--------------|--------|--------|
+| Linear Regression          | 1.2          | 0.153  | 0.012  |
+| Gradient Boosting Regressor| 0.9          | 0.154  | 0.009  |
+| Random Forest Regressor    | 0.4          | 0.155  | 0.004  |
+
+- Modeller, derecelendirme puanlarını tahmin etmede düşük başarı göstermiştir. Bunun temel nedenleri, veri setindeki etiketlerin ve derecelendirme puanlarının çok fazla varyans göstermesi olabilir.
+
+### 3. Genel Değerlendirme:
+- Hiyerarşik kümeleme, tariflerin gruplandırılmasında anlamlı bir araç olarak öne çıkmıştır.
+- Öne çıkan özelliklerin belirlenmesi, tariflerin diyet gereksinimlerine göre gruplandırılmasını kolaylaştırmıştır.
+- Modelleme sonuçlarının iyileştirilmesi için daha fazla özellik mühendisliği yapılması önerilmektedir.
+
+---
 
 ## Kullanım
 
-1.  Bu repository'i yerel makinenize klonlayın.
-2.  Python 3.6+ sürümünün yüklü olduğundan emin olun.
-3.  `pip install -r requirements.txt` komutunu kullanarak gerekli paketleri yükleyin.
-4.  Jupyter'da `Recipe-Dataset-Analyse.ipynb` not defterini açın ve çalıştırın.
+1. Bu repository'yi yerel makinenize klonlayın:
+   ```bash
+   git clone https://github.com/username/recipe-clustering.git
+2.Python 3.6+ yüklü olduğundan emin olun.
+3.Gerekli kütüphaneleri yükleyin:
+bash
+pip install -r requirements.txt
+4.Not defterini çalıştırın:
+bash
+jupyter notebook Recipe-Dataset-Analyse.ipynb
 
 ## Bağımlılıklar
 
-*   `pandas`
-*   `numpy`
-*   `matplotlib`
-*   `seaborn`
-*   `scikit-learn`
-*   `scipy`
+*   pandas
+*   numpy
+*   matplotlib
+*   seaborn
+*   scikit-learn
+*   scipy
 
 Bunları aşağıdaki komutu kullanarak yükleyebilirsiniz:
 
-```bash
+bash
 pip install pandas numpy matplotlib seaborn scikit-learn scipy
 
 
+##Lisans
+-Bu proje MIT Lisansı ile korunmaktadır. Daha fazla bilgi için LICENSE dosyasını inceleyin.
