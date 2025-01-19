@@ -109,8 +109,6 @@ Regresyon modellerinin doğruluk oranları oldukça düşüktür:
 
 Bunları aşağıdaki komutu kullanarak yükleyebilirsiniz:
 
-bash
+````bash
 pip install pandas numpy matplotlib seaborn scikit-learn 
 
-##Lisans
-Bu proje MIT Lisansı ile korunmaktadır. Daha fazla bilgi için LICENSE dosyasını inceleyin.
