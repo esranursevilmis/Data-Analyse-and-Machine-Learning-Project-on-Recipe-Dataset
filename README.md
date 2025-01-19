@@ -91,19 +91,12 @@ Regresyon modellerinin doğruluk oranları oldukça düşüktür:
 - Modelleme sonuçlarının iyileştirilmesi için daha fazla özellik mühendisliği yapılması önerilmektedir.
 
 ---
-
 ## Kullanım
 
-1. Bu repository'yi yerel makinenize klonlayın:
-   ```bash
-   git clone https://github.com/username/recipe-clustering.git
-2.Python 3.6+ yüklü olduğundan emin olun.
-3.Gerekli kütüphaneleri yükleyin:
-bash
-pip install -r requirements.txt
-4.Not defterini çalıştırın:
-  ```bash
-jupyter notebook Recipe-Dataset-Analyse.ipynb
+1.  Bu repository'i yerel makinenize klonlayın.
+2.  Python 3.6+ sürümünün yüklü olduğundan emin olun.
+3.  pip install -r requirements.txt komutunu kullanarak gerekli paketleri yükleyin.
+4.  Jupyter'da Recipe-Dataset-Analyse.ipynb not defterini açın ve çalıştırın.
 
 ## Bağımlılıklar
 
@@ -115,8 +108,9 @@ jupyter notebook Recipe-Dataset-Analyse.ipynb
 *   scipy
 
 Bunları aşağıdaki komutu kullanarak yükleyebilirsiniz:
+
 bash
-pip install pandas numpy matplotlib seaborn scikit-learn s
+pip install pandas numpy matplotlib seaborn scikit-learn 
 
 ##Lisans
 Bu proje MIT Lisansı ile korunmaktadır. Daha fazla bilgi için LICENSE dosyasını inceleyin.
