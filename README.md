@@ -28,7 +28,8 @@ Bu proje, özelliklerini anlamak ve gizli kalıpları ortaya çıkarmak için bi
 
 ## Veri
 
-Bu analizde kullanılan veri seti, `recipes_images.json` adlı bir JSON dosyasında saklanır. Bu dosya, aşağıdakiler de dahil olmak üzere tarif bilgilerini içerir:
+Bu analizde kullanılan veri seti, `recipes_images.json` adlı bir JSON dosyasında saklanır. Bu veri seti, [Recipe Dataset with Images, Tags, and Ratings](https://www.kaggle.com/datasets/seungyeonhan1/recipe-dataset-with-images-tags-and-ratings) adresinden elde edilmiştir.
+Bu dosya, aşağıdakiler de dahil olmak üzere tarif bilgilerini içerir:
 
 *   Tarif başlıkları
 *   Açıklamalar
