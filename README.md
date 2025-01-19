@@ -2,7 +2,7 @@
 Data Analyse and Machine Learning on Recipe Dataset.
 # Tarif Veri Seti Analizi ve Kümeleme
 
-Bu depo, bir tarif veri seti üzerinde keşifsel veri analizi (EDA), temel modelleme ve kümeleme gerçekleştiren bir Python not defteri (`Recipe-Dataset-Analyse.ipynb`) içerir. Amaç, verilerden içgörüler elde etmek ve tarif kümeleri oluşturmaktır.
+Bu repository, bir tarif veri seti üzerinde keşifsel veri analizi (EDA), temel modelleme ve kümeleme gerçekleştiren bir Python not defteri (`Recipe-Dataset-Analyse.ipynb`) içerir. Amaç, verilerden içgörüler elde etmek ve tarif kümeleri oluşturmaktır.
 
 ## İçindekiler
 
@@ -10,7 +10,6 @@ Bu depo, bir tarif veri seti üzerinde keşifsel veri analizi (EDA), temel model
 *   [Veri](#veri)
 *   [Not Defteri İncelemesi](#not-defteri-incelemesi)
 *   [Temel Bulgular](#temel-bulgular)
-*   [Depodaki Dosyalar](#depodaki-dosyalar)
 *   [Kullanım](#kullanım)
 *   [Bağımlılıklar](#bağımlılıklar)
 *   [Sonraki Adımlar](#sonraki-adımlar)
@@ -31,16 +30,16 @@ Bu proje, özelliklerini anlamak ve gizli kalıpları ortaya çıkarmak için bi
 Bu analizde kullanılan veri seti, `recipes_images.json` adlı bir JSON dosyasında saklanır. Bu veri seti, [Recipe Dataset with Images, Tags, and Ratings](https://www.kaggle.com/datasets/seungyeonhan1/recipe-dataset-with-images-tags-and-ratings) adresinden elde edilmiştir.
 Bu dosya, aşağıdakiler de dahil olmak üzere tarif bilgilerini içerir:
 
-*   Tarif başlıkları
-*   Açıklamalar
-*   İçindekiler
-*   Pişirme süresi
-*   Porsiyon sayıları
+*   Title: Tarif başlıkları
+*   Description: Açıklamalar
+*   Ingredients: İçindekiler
+*   Cooking Time. Pişirme süresi
+*   Servings: Porsiyon sayıları
 *   Yayın tarihi
-*   Resim dosyası adı
-*   Talimatlar
-*   Değerlendirmeler
-*   Çeşitli etiketler (tür, mutfak, içerik, öğün, özel durumlar, ekipman vb.)
+*   Image Filename: Resim dosyası adı
+*   Instructions: Pişirme Talimatları
+*   Ratings: Değerlendirmeler
+*   Tags: Çeşitli etiketler (tür, mutfak, içerik, öğün, özel durumlar, ekipman vb.)
 
 ## Not Defteri İncelemesi
 
@@ -80,22 +79,16 @@ Bu dosya, aşağıdakiler de dahil olmak üzere tarif bilgilerini içerir:
     *   Verinin ne kadar iyi kümelendiğini belirlemek için Siluet Skoru, Calinski-Harabasz İndeksi ve Davies-Bouldin İndeksi gibi kümeleme kalite metriklerini hesaplar ve yazdırır.
     *    Her kümedeki en belirgin ilk 5 özelliği yazdırır.
 
-## Temel Bulgular
+## Temel Bulgular ve Sonuç 
 
 *   Veri seti, çeşitli etiketlere ve özel durumlara sahip çok çeşitli tarifler içerir.
-*   Değerlendirme dağılımının çarpık olduğu görülmektedir.
-*  Winsorization, puanlardaki aykırı değerlerin etkisini azaltmaya yardımcı olur.
+*   Winsorization, puanlardaki aykırı değerlerin etkisini azaltmaya yardımcı olur.
 *   Farklı kümeleme algoritmaları, her küme için farklı bir kalite ve farklı tarifler sunmaktadır.
-*    Tanımlanan modellerin doğruluk oranı yaklaşık %1 seviyesinde olup, performansları iyi değildir.
-
-## Depodaki Dosyalar
-
-*   `Recipe-Dataset-Analyse.ipynb`: Veri analizi ve modelleme için tüm kodu içeren Jupyter Not Defteri.
-*   `data/recipes/recipes_images.json`: Ham JSON veri seti.
+*   Tanımlanan modellerin doğruluk oranı yaklaşık %1 seviyesinde olup, performansları iyi değildir.
 
 ## Kullanım
 
-1.  Bu depoyu yerel makinenize klonlayın.
+1.  Bu repository'i yerel makinenize klonlayın.
 2.  Python 3.6+ sürümünün yüklü olduğundan emin olun.
 3.  `pip install -r requirements.txt` komutunu kullanarak gerekli paketleri yükleyin.
 4.  Jupyter'da `Recipe-Dataset-Analyse.ipynb` not defterini açın ve çalıştırın.
@@ -113,3 +106,5 @@ Bunları aşağıdaki komutu kullanarak yükleyebilirsiniz:
 
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn scipy
+
+
