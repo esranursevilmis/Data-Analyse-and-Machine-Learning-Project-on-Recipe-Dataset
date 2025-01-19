@@ -1,6 +1,7 @@
 # Data-Analyse-and-Machine-Learning-Project-on-Recipe-Dataset
 
 Bu repository, tarif veri seti üzerinde keşifsel veri analizi (EDA), temel modelleme ve kümeleme gerçekleştiren bir Python not defteri olan `Recipe-Dataset-Analyse.ipynb` dosyasını içerir. Projenin amacı, tariflere ait verileri analiz ederek içgörüler elde etmek, tariflerin özelliklerine göre kümeler oluşturmak ve modeller aracılığıyla verilerin davranışını anlamaktır.
+
 Proje Sunum Video Linki: (https://www.youtube.com/watch?v=mrljEQmxPBA&ab_channel=EsranurSevilmi%C5%9F)
 ## İçindekiler
 
