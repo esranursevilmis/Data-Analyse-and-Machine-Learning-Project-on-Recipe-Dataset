@@ -10,7 +10,6 @@ Bu repository, tarif veri seti üzerinde keşifsel veri analizi (EDA), temel mod
 - [Temel Bulgular ve Sonuç](#temel-bulgular-ve-sonuç)
 - [Kullanım](#kullanım)
 - [Bağımlılıklar](#bağımlılıklar)
-- [Sonraki Adımlar](#sonraki-adımlar)
 - [Lisans](#lisans)
 - [Yazar](#yazar)
 
@@ -103,7 +102,7 @@ Regresyon modellerinin doğruluk oranları oldukça düşüktür:
 bash
 pip install -r requirements.txt
 4.Not defterini çalıştırın:
-bash
+```bash
 jupyter notebook Recipe-Dataset-Analyse.ipynb
 
 ## Bağımlılıklar
@@ -117,9 +116,9 @@ jupyter notebook Recipe-Dataset-Analyse.ipynb
 
 Bunları aşağıdaki komutu kullanarak yükleyebilirsiniz:
 
-bash
+```bash
 pip install pandas numpy matplotlib seaborn scikit-learn scipy
 
 
 ##Lisans
--Bu proje MIT Lisansı ile korunmaktadır. Daha fazla bilgi için LICENSE dosyasını inceleyin.
+Bu proje MIT Lisansı ile korunmaktadır. Daha fazla bilgi için LICENSE dosyasını inceleyin.
