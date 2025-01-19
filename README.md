@@ -10,8 +10,7 @@ Bu repository, tarif veri seti üzerinde keşifsel veri analizi (EDA), temel mod
 - [Temel Bulgular ve Sonuç](#temel-bulgular-ve-sonuç)
 - [Kullanım](#kullanım)
 - [Bağımlılıklar](#bağımlılıklar)
-- [Lisans](#lisans)
-- [Yazar](#yazar)
+
 
 ---
 
@@ -65,8 +64,8 @@ Not defteri aşağıdaki adımları içermektedir:
 ### 1. Kümeleme Bulguları:
 Veri kümesi 3 gruba ayrılmıştır:
 
-| Küme | Ortalama Puan | Standart Sapma | Ortalama Yorum Sayısı | Öne Çıkan Özellikler                           |
-|------|---------------|----------------|------------------------|-----------------------------------------------|
+| Küme | Ortalama Puan | Standart Sapma | Ortalama Değerlendirme Sayısı| Öne Çıkan Özellikler                   |
+|------|---------------|----------------|-----------------------|-----------------------------------------------|
 | 1    | 4.20          | 0.40           | 18.79                 | Vegan, Vejetaryen, Glütensiz                  |
 | 2    | 3.85          | 0.59           | 17.64                 | Kosher, Pescatarian, Düşük Şeker İçeriği      |
 | 3    | 4.21          | 0.39           | 23.41                 | Yüksek Derecelendirme, Nötresiz, Keto         |
